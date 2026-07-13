@@ -24,7 +24,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? 'border-b border-bone/10 bg-night/85 backdrop-blur-md' : 'bg-transparent'
+        scrolled ? 'border-b border-graphite/10 bg-porcelain/85 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
@@ -38,7 +38,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-light text-mist transition-colors hover:text-bone"
+              className="text-sm font-light text-smoke transition-colors hover:text-graphite"
             >
               {l.label}
             </a>
@@ -49,7 +49,7 @@ export function Navbar() {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden bg-tan px-5 py-2 text-sm font-medium text-night transition-all hover:bg-tan-deep active:scale-[0.98] lg:block"
+          className="hidden bg-terra px-5 py-2 text-sm font-medium text-white transition-all hover:bg-terra-deep active:scale-[0.98] lg:block"
         >
           Agendar avaliação
         </a>
@@ -61,19 +61,19 @@ export function Navbar() {
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
         >
-          <span className={`h-px w-6 bg-bone transition-transform ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
-          <span className={`h-px w-6 bg-bone transition-transform ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
+          <span className={`h-px w-6 bg-graphite transition-transform ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
+          <span className={`h-px w-6 bg-graphite transition-transform ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
         </button>
       </div>
 
       {open && (
-        <nav className="border-b border-bone/10 bg-night px-5 pt-2 pb-6 lg:hidden" aria-label="Menu">
+        <nav className="border-b border-graphite/10 bg-porcelain px-5 pt-2 pb-6 lg:hidden" aria-label="Menu">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-base font-light text-mist"
+              className="block py-3 text-base font-light text-smoke"
             >
               {l.label}
             </a>
@@ -82,7 +82,7 @@ export function Navbar() {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block bg-tan px-5 py-3 text-center text-sm font-medium text-night"
+            className="mt-4 block bg-terra px-5 py-3 text-center text-sm font-medium text-white"
           >
             Agendar avaliação
           </a>

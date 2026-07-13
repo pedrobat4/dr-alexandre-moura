@@ -6,7 +6,7 @@ import { procedures } from './Procedures'
 import familia from '../assets/familia.jpg'
 
 const inputClass =
-  'w-full border-b border-bone/20 bg-transparent px-0 py-3 text-base font-light text-bone placeholder:text-mist/50 outline-none transition-colors focus:border-tan'
+  'w-full border-b border-graphite/25 bg-transparent px-0 py-3 text-base font-light text-graphite placeholder:text-smoke/60 outline-none transition-colors focus:border-terra'
 
 export function LeadForm() {
   const [name, setName] = useState('')
@@ -28,13 +28,13 @@ export function LeadForm() {
   }
 
   return (
-    <section id="contato" className="bg-night-soft">
+    <section id="contato" className="bg-white">
       <div className="mx-auto grid max-w-6xl gap-14 px-5 py-24 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-28">
         <div className="lg:col-span-5">
           <h2 className="reveal font-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
             Agende sua avaliação
           </h2>
-          <p className="reveal mt-5 max-w-sm text-base font-light leading-relaxed text-mist" style={{ transitionDelay: '0.1s' }}>
+          <p className="reveal mt-5 max-w-sm text-base font-light leading-relaxed text-smoke" style={{ transitionDelay: '0.1s' }}>
             Preencha o formulário e fale direto com a equipe pelo WhatsApp,
             para atendimento presencial ou por telemedicina.
           </p>
@@ -53,9 +53,9 @@ export function LeadForm() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm font-light text-mist transition-colors hover:text-bone"
+                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
               >
-                <WhatsappLogo className="h-5 w-5 text-tan" />
+                <WhatsappLogo className="h-5 w-5 text-terra" />
                 {PHONE_DISPLAY}
               </a>
             </li>
@@ -64,18 +64,18 @@ export function LeadForm() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm font-light text-mist transition-colors hover:text-bone"
+                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
               >
-                <InstagramLogo className="h-5 w-5 text-tan" />
+                <InstagramLogo className="h-5 w-5 text-terra" />
                 @{INSTAGRAM_HANDLE}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-sm font-light text-mist transition-colors hover:text-bone"
+                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
               >
-                <EnvelopeSimple className="h-5 w-5 text-tan" />
+                <EnvelopeSimple className="h-5 w-5 text-terra" />
                 {EMAIL}
               </a>
             </li>
@@ -85,13 +85,13 @@ export function LeadForm() {
         <form onSubmit={handleSubmit} className="reveal space-y-8 lg:col-span-7 lg:pl-10" style={{ transitionDelay: '0.12s' }}>
           <div className="grid gap-8 sm:grid-cols-2">
             <label className="block">
-              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-mist uppercase">
+              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
                 Nome completo *
               </span>
               <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" className={inputClass} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-mist uppercase">WhatsApp *</span>
+              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">WhatsApp *</span>
               <input
                 required
                 type="tel"
@@ -104,13 +104,13 @@ export function LeadForm() {
           </div>
 
           <label className="block">
-            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-mist uppercase">
+            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
               Procedimento de interesse
             </span>
             <select
               value={procedure}
               onChange={(e) => setProcedure(e.target.value)}
-              className={`${inputClass} appearance-none [&>option]:bg-night`}
+              className={`${inputClass} appearance-none [&>option]:bg-white`}
             >
               <option value="">Selecione (opcional)</option>
               {procedures.map((p) => (
@@ -123,7 +123,7 @@ export function LeadForm() {
           </label>
 
           <fieldset>
-            <legend className="mb-3 block text-xs font-light tracking-[0.14em] text-mist uppercase">
+            <legend className="mb-3 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
               Preferência de atendimento
             </legend>
             <div className="grid grid-cols-2 gap-3">
@@ -132,8 +132,8 @@ export function LeadForm() {
                   key={m}
                   className={`cursor-pointer border px-4 py-3 text-center text-sm font-light transition-colors ${
                     mode === m
-                      ? 'border-tan bg-tan font-medium text-night'
-                      : 'border-bone/20 text-mist hover:border-tan hover:text-bone'
+                      ? 'border-terra bg-terra font-medium text-white'
+                      : 'border-graphite/25 text-smoke hover:border-terra hover:text-graphite'
                   }`}
                 >
                   <input
@@ -151,7 +151,7 @@ export function LeadForm() {
           </fieldset>
 
           <label className="block">
-            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-mist uppercase">Mensagem</span>
+            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">Mensagem</span>
             <textarea
               rows={3}
               value={message}
@@ -163,13 +163,13 @@ export function LeadForm() {
 
           <button
             type="submit"
-            className="group flex w-full items-center justify-center gap-3 bg-tan px-8 py-4 text-sm font-medium text-night transition-all hover:bg-tan-deep active:scale-[0.98] sm:w-auto"
+            className="group flex w-full items-center justify-center gap-3 bg-terra px-8 py-4 text-sm font-medium text-white transition-all hover:bg-terra-deep active:scale-[0.98] sm:w-auto"
           >
             <WhatsappLogo className="h-5 w-5" />
             Enviar pelo WhatsApp
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
-          <p className="text-xs font-light text-mist/70">
+          <p className="text-xs font-light text-smoke/70">
             Ao enviar, você será direcionada ao WhatsApp da equipe com a sua mensagem pronta.
           </p>
         </form>

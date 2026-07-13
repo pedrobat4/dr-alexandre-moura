@@ -18,21 +18,21 @@ const modes = [
 
 export function Care() {
   return (
-    <section id="atendimento" className="border-y border-bone/10">
+    <section id="atendimento" className="border-y border-graphite/10">
       <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
         {modes.map((m, i) => (
           <div
             key={m.title}
-            className={`reveal px-5 py-16 lg:p-16 ${i === 1 ? 'border-t border-bone/10 lg:border-t-0 lg:border-l' : ''}`}
+            className={`reveal px-5 py-16 lg:p-16 ${i === 1 ? 'border-t border-graphite/10 lg:border-t-0 lg:border-l' : ''}`}
             style={{ transitionDelay: `${i * 0.1}s` }}
           >
             <h3 className="font-display text-3xl font-bold tracking-tight md:text-4xl">{m.title}</h3>
-            <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-mist">{m.desc}</p>
+            <p className="mt-4 max-w-sm text-base font-light leading-relaxed text-smoke">{m.desc}</p>
             <a
               href={whatsappLink(m.msg)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-tan transition-colors hover:text-bone"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-terra transition-colors hover:text-graphite"
             >
               {m.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

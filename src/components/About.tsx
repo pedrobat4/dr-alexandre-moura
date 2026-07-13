@@ -15,13 +15,16 @@ export function About() {
           />
         </div>
 
-        <div className="reveal bg-night-soft p-8 lg:col-span-7 lg:-ml-20 lg:p-14" style={{ transitionDelay: '0.12s' }}>
+        <div
+          className="reveal bg-white p-8 shadow-[0_24px_60px_-32px_rgba(30,34,38,0.25)] lg:col-span-7 lg:-ml-20 lg:p-14"
+          style={{ transitionDelay: '0.12s' }}
+        >
           <h2 className="font-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
             Dr. Alexandre Moura
           </h2>
-          <p className="mt-3 text-sm font-light text-tan">{CRM}</p>
+          <p className="mt-3 text-sm font-light text-terra">{CRM}</p>
 
-          <p className="mt-7 max-w-lg text-base font-light leading-relaxed text-mist">
+          <p className="mt-7 max-w-lg text-base font-light leading-relaxed text-smoke">
             Membro especialista pela Sociedade Brasileira de Cirurgia Plástica
             (SBCP), o Dr. Alexandre Moura atende em São Paulo, com consultas
             presenciais e por telemedicina. Sua atuação cobre cirurgias de mama,
@@ -30,13 +33,13 @@ export function About() {
             detalhe.
           </p>
 
-          <dl className="mt-10 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-bone/10 pt-8">
+          <dl className="mt-10 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-graphite/10 pt-8">
             <div>
-              <dt className="text-xs font-light tracking-[0.16em] text-mist uppercase">Título</dt>
+              <dt className="text-xs font-light tracking-[0.16em] text-smoke uppercase">Título</dt>
               <dd className="mt-1.5 font-display text-lg font-medium">Especialista SBCP</dd>
             </div>
             <div>
-              <dt className="text-xs font-light tracking-[0.16em] text-mist uppercase">Onde atende</dt>
+              <dt className="text-xs font-light tracking-[0.16em] text-smoke uppercase">Onde atende</dt>
               <dd className="mt-1.5 font-display text-lg font-medium">São Paulo e online</dd>
             </div>
           </dl>
@@ -45,7 +48,7 @@ export function About() {
             href={whatsappLink('Olá! Gostaria de conhecer melhor o trabalho do Dr. Alexandre Moura.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-tan transition-colors hover:text-bone"
+            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-terra transition-colors hover:text-graphite"
           >
             Conversar com a equipe
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
