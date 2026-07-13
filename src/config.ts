@@ -1,5 +1,5 @@
 /**
- * Configuração central do site — todos os contatos e textos-chave em um lugar só.
+ * Configuração central do site: todos os contatos e textos-chave em um lugar só.
  * Dados conforme briefing e bio do Instagram do cliente.
  */
 
@@ -21,7 +21,7 @@ export function whatsappLink(message?: string): string {
 
 export const DOCTOR_NAME = 'Dr. Alexandre Moura'
 export const SLOGAN = 'Excelência em cada detalhe'
-export const CITY = 'São Paulo – SP'
+export const CITY = 'São Paulo - SP'
 
 // Da bio do Instagram do cliente
 export const CRM = 'CRM-SP 242921 · RQE 146402'

@@ -14,34 +14,31 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const sentinel = document.getElementById('top-sentinel')
+    if (!sentinel) return
+    const observer = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting))
+    observer.observe(sentinel)
+    return () => observer.disconnect()
   }, [])
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-ivory/85 backdrop-blur-md' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        scrolled ? 'border-b border-bone/10 bg-night/85 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div
-        className={`mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center px-5 transition-all duration-500 lg:grid-cols-[1fr_auto_1fr] lg:px-8 ${
-          scrolled ? 'py-3.5' : 'py-6'
-        }`}
-      >
-        {/* TROCAR: substituir o lockup de texto pelo logotipo enviado pelo cliente */}
-        <a href="#inicio" className="justify-self-start font-display text-lg font-medium tracking-[0.22em] uppercase">
-          Alexandre&nbsp;Moura
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
+        {/* TROCAR: substituir o wordmark pelo logotipo enviado pelo cliente */}
+        <a href="#inicio" className="font-display text-base font-semibold tracking-tight">
+          Alexandre Moura
         </a>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[12px] font-light tracking-[0.16em] text-ink-soft/80 transition-colors hover:text-ink"
+              className="text-sm font-light text-mist transition-colors hover:text-bone"
             >
               {l.label}
             </a>
@@ -52,35 +49,31 @@ export function Navbar() {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="group hidden items-center gap-2 justify-self-end text-[12px] tracking-[0.16em] text-ink lg:flex"
+          className="hidden bg-tan px-5 py-2 text-sm font-medium text-night transition-all hover:bg-tan-deep active:scale-[0.98] lg:block"
         >
           Agendar avaliação
-          <span className="hairline w-6 transition-all duration-300 group-hover:w-9" />
         </a>
 
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="flex flex-col gap-1.5 justify-self-end p-2 lg:hidden"
-          aria-label="Abrir menu"
+          className="flex flex-col gap-1.5 p-2 lg:hidden"
+          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={open}
         >
-          <span className={`h-px w-6 bg-ink transition-transform ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
-          <span className={`h-px w-6 bg-ink transition-transform ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
+          <span className={`h-px w-6 bg-bone transition-transform ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
+          <span className={`h-px w-6 bg-bone transition-transform ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
         </button>
       </div>
 
-      <div
-        className={`mx-auto h-px max-w-6xl bg-ink/10 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
-      />
-
       {open && (
-        <nav className="flex flex-col gap-1 bg-ivory/95 px-5 pt-4 pb-8 backdrop-blur-md lg:hidden">
+        <nav className="border-b border-bone/10 bg-night px-5 pt-2 pb-6 lg:hidden" aria-label="Menu">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-2.5 text-sm font-light tracking-[0.16em] text-ink-soft"
+              className="block py-3 text-base font-light text-mist"
             >
               {l.label}
             </a>
@@ -89,9 +82,9 @@ export function Navbar() {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center gap-3 text-sm tracking-[0.16em] text-ink"
+            className="mt-4 block bg-tan px-5 py-3 text-center text-sm font-medium text-night"
           >
-            Agendar avaliação <span className="hairline w-8" />
+            Agendar avaliação
           </a>
         </nav>
       )}

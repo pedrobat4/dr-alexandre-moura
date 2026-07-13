@@ -1,50 +1,39 @@
-import { CRM, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, SLOGAN, whatsappLink } from '../config'
-import { InstagramIcon, WhatsAppIcon } from './Icons'
+import { CRM, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, whatsappLink } from '../config'
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink/10 bg-ivory-deep/60">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 py-14 text-center lg:px-8">
-        <div>
-          <p className="font-display text-2xl font-medium tracking-[0.18em] uppercase">Alexandre Moura</p>
-          <p className="mt-1.5 text-[10px] uppercase tracking-[0.42em] text-gold-deep">Cirurgião Plástico</p>
-          <p className="mt-3 font-display text-base italic text-stone">"{SLOGAN}"</p>
+    <footer className="border-t border-bone/10">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 lg:grid-cols-12 lg:px-8">
+        <div className="lg:col-span-6">
+          <p className="font-display text-lg font-semibold tracking-tight">Alexandre Moura</p>
+          <p className="mt-1 text-sm font-light text-mist">Cirurgião plástico</p>
+          <p className="mt-1 text-sm font-light text-mist">{CRM}</p>
         </div>
-
-        <div className="flex items-center gap-6">
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors hover:border-gold-deep hover:text-gold-deep"
-          >
-            <WhatsAppIcon />
-          </a>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors hover:border-gold-deep hover:text-gold-deep"
-          >
-            <InstagramIcon />
-          </a>
-        </div>
-
-        <div className="space-y-1 text-xs font-light tracking-wide text-stone">
+        <div className="space-y-1.5 text-sm font-light text-mist lg:col-span-6 lg:text-right">
           <p>
-            {PHONE_DISPLAY} · {EMAIL} · @{INSTAGRAM_HANDLE}
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-bone">
+              {PHONE_DISPLAY}
+            </a>
           </p>
-          <p>{CRM}</p>
+          <p>
+            <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-bone">
+              {EMAIL}
+            </a>
+          </p>
+          <p>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-bone">
+              @{INSTAGRAM_HANDLE}
+            </a>
+          </p>
         </div>
-
-        <p className="max-w-xl text-[11px] font-light leading-relaxed text-stone/80">
-          Este site tem caráter informativo e não substitui a consulta médica. A indicação de
-          procedimentos depende de avaliação individual. Resultados variam de pessoa para pessoa.
+      </div>
+      <div className="mx-auto max-w-6xl border-t border-bone/10 px-5 py-6 lg:px-8">
+        <p className="max-w-2xl text-xs font-light leading-relaxed text-mist/70">
+          Este site tem caráter informativo e não substitui a consulta médica. A
+          indicação de procedimentos depende de avaliação individual. Resultados
+          variam de pessoa para pessoa.
         </p>
-
-        <p className="text-[11px] tracking-[0.14em] text-stone/60">
+        <p className="mt-3 text-xs font-light text-mist/50">
           © {new Date().getFullYear()} Dr. Alexandre Moura. Todos os direitos reservados.
         </p>
       </div>

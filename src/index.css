@@ -1,18 +1,22 @@
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/archivo';
 @import 'tailwindcss';
 
+/*
+ * Tema único: dark luxury "black and tan".
+ * Off-black quente + tan como único acento. Cantos retos em tudo
+ * (exceção documentada: botão flutuante do WhatsApp, circular por convenção).
+ */
 @theme {
-  --color-ivory: #f6f1e8;
-  --color-ivory-light: #fbf8f2;
-  --color-ivory-deep: #ede5d6;
-  --color-ink: #1a1512;
-  --color-ink-soft: #2b241f;
-  --color-stone: #6f6558;
-  --color-gold: #b08d57;
-  --color-gold-light: #c9a96a;
-  --color-gold-deep: #8c6f45;
+  --color-night: #131110;
+  --color-night-soft: #1b1815;
+  --color-bone: #ede8e0;
+  --color-mist: #a29a8f;
+  --color-tan: #c9a37c;
+  --color-tan-deep: #b18a60;
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', sans-serif;
+  --font-body: 'Archivo Variable', sans-serif;
 }
 
 html {
@@ -20,65 +24,68 @@ html {
 }
 
 body {
-  @apply bg-ivory font-body text-ink antialiased;
+  @apply bg-night font-body text-bone antialiased;
   letter-spacing: 0.01em;
 }
 
-/* ---- textura de grão sutil sobre todo o site ---- */
+::selection {
+  background: var(--color-tan);
+  color: var(--color-night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-tan);
+  outline-offset: 3px;
+}
+
+/* ---- grão fixo, fora do fluxo de scroll (pointer-events none) ---- */
 .grain::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ---- reveal on scroll ---- */
+/* ---- reveal on scroll (IntersectionObserver), desativado sob reduced motion ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(24px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ---- linha dourada decorativa ---- */
-.hairline {
-  @apply bg-gold/60;
-  height: 1px;
-}
-
-/* ---- marquee de credenciais ---- */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
-.marquee-track {
-  animation: marquee 32s linear infinite;
-}
 
-/* ---- pulso do botão flutuante ---- */
+/* ---- pulso do botão flutuante (some sob reduced motion) ---- */
 @keyframes soft-ping {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
   }
 }
-.whats-pulse {
-  animation: soft-ping 2.6s ease-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .whats-pulse {
+    animation: soft-ping 2.6s ease-out infinite;
+  }
 }
