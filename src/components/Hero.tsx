@@ -6,7 +6,7 @@ const badges = ['CRM-SP 242921 · RQE 146402', 'Presencial e telemedicina']
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden bg-verde pt-16 text-white">
+    <section id="inicio" className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-verde pt-16 text-white">
       <span id="top-sentinel" aria-hidden="true" className="absolute top-0 h-px w-px" />
 
       {/* atmosfera: brilho suave atrás da foto e vinheta inferior */}
@@ -19,7 +19,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-24">
+      <div className="relative mx-auto grid w-full max-w-6xl flex-1 items-center gap-14 px-5 py-14 lg:grid-cols-12 lg:gap-8 lg:px-8">
         <div className="lg:col-span-7">
           <p className="reveal flex items-center gap-3 text-xs font-semibold tracking-[0.3em] text-cinza uppercase">
             <span className="h-px w-8 bg-cinza/50" />
