@@ -3,7 +3,6 @@ import type { FormEvent } from 'react'
 import { ArrowRight, EnvelopeSimple, InstagramLogo, WhatsappLogo } from '@phosphor-icons/react'
 import { EMAIL, PHONE_DISPLAY, INSTAGRAM_URL, INSTAGRAM_HANDLE, whatsappLink } from '../config'
 import { procedures } from './Procedures'
-import corredor from '../assets/corredor.jpg'
 
 const inputClass =
   'w-full rounded-lg border border-cinza bg-white px-4 py-3 text-sm text-verde placeholder:text-neblina/50 outline-none transition-colors focus:border-verde-medio'
@@ -42,14 +41,6 @@ export function LeadForm() {
             Preencha o formulário e fale direto com a equipe pelo WhatsApp,
             para atendimento presencial ou por telemedicina.
           </p>
-
-          <img
-            src={corredor}
-            alt="Dr. Alexandre Moura na clínica"
-            className="reveal mt-9 aspect-[4/3] w-full max-w-sm rounded-2xl object-cover object-top shadow-[0_16px_44px_rgba(9,37,38,0.15)]"
-            loading="lazy"
-            style={{ transitionDelay: '0.18s' }}
-          />
 
           <ul className="reveal mt-9 space-y-3.5" style={{ transitionDelay: '0.22s' }}>
             <li>
