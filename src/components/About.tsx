@@ -1,58 +1,69 @@
-import { ArrowRight } from '@phosphor-icons/react'
-import { whatsappLink, CRM } from '../config'
-import casalEditorial from '../assets/casal-editorial.jpg'
+import { Certificate, MapPin, VideoCamera } from '@phosphor-icons/react'
+import { CRM } from '../config'
+import sobreMesa from '../assets/sobre-mesa.jpg'
+
+const pontos = [
+  {
+    icon: Certificate,
+    title: 'Membro especialista pela SBCP',
+    desc: 'Título de especialista concedido pela Sociedade Brasileira de Cirurgia Plástica.',
+  },
+  {
+    icon: MapPin,
+    title: 'Atendimento em São Paulo',
+    desc: 'Consultas presenciais no consultório, com avaliação completa e plano individualizado.',
+  },
+  {
+    icon: VideoCamera,
+    title: 'Telemedicina',
+    desc: 'Primeira orientação por vídeo para quem está em outra cidade ou prefere começar a distância.',
+  },
+]
 
 export function About() {
   return (
-    <section id="sobre" className="mx-auto max-w-6xl px-5 py-24 lg:px-8 lg:py-28">
-      <div className="grid items-center gap-10 lg:grid-cols-12">
-        <div className="reveal lg:col-span-5">
+    <section id="sobre" className="bg-claro">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:py-28">
+        <div className="reveal mx-auto w-full max-w-md lg:col-span-5">
           <img
-            src={casalEditorial}
-            alt="Dr. Alexandre Moura em retrato editorial"
-            className="aspect-[3/4] w-full object-cover"
+            src={sobreMesa}
+            alt="Dr. Alexandre Moura em seu consultório"
+            className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_24px_60px_rgba(9,37,38,0.18)]"
             loading="lazy"
           />
         </div>
 
-        <div
-          className="reveal bg-white p-8 shadow-[0_24px_60px_-32px_rgba(30,34,38,0.25)] lg:col-span-7 lg:-ml-20 lg:p-14"
-          style={{ transitionDelay: '0.12s' }}
-        >
-          <h2 className="font-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
-            Dr. Alexandre Moura
+        <div className="lg:col-span-7">
+          <p className="reveal flex items-center gap-3 text-xs font-semibold tracking-[0.28em] text-verde-medio uppercase">
+            <span className="h-px w-8 bg-verde-medio/50" />
+            Quem é o Dr. Alexandre
+          </p>
+          <h2 className="reveal mt-4 font-display text-3xl leading-snug font-medium text-balance md:text-4xl" style={{ transitionDelay: '0.08s' }}>
+            Cirurgia séria, conduzida com <em className="italic">critério e cuidado</em>.
           </h2>
-          <p className="mt-3 text-sm font-light text-terra">{CRM}</p>
-
-          <p className="mt-7 max-w-lg text-base font-light leading-relaxed text-smoke">
+          <p className="reveal mt-3 text-sm font-medium text-neblina" style={{ transitionDelay: '0.12s' }}>
+            {CRM}
+          </p>
+          <p className="reveal mt-5 max-w-xl text-base leading-relaxed font-light text-neblina" style={{ transitionDelay: '0.16s' }}>
             Membro especialista pela Sociedade Brasileira de Cirurgia Plástica
-            (SBCP), o Dr. Alexandre Moura atende em São Paulo, com consultas
-            presenciais e por telemedicina. Sua atuação cobre cirurgias de mama,
-            abdome, lipoaspiração, procedimentos faciais e injetáveis, guiada
-            pelo princípio que dá nome a esta página: excelência em cada
-            detalhe.
+            (SBCP), o Dr. Alexandre Moura atende em São Paulo com consultas
+            presenciais e por telemedicina. Sua atuação cobre cirurgias de
+            mama, abdome, lipoaspiração, procedimentos faciais e injetáveis.
           </p>
 
-          <dl className="mt-10 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-graphite/10 pt-8">
-            <div>
-              <dt className="text-xs font-light tracking-[0.16em] text-smoke uppercase">Título</dt>
-              <dd className="mt-1.5 font-display text-lg font-medium">Especialista SBCP</dd>
-            </div>
-            <div>
-              <dt className="text-xs font-light tracking-[0.16em] text-smoke uppercase">Onde atende</dt>
-              <dd className="mt-1.5 font-display text-lg font-medium">São Paulo e online</dd>
-            </div>
-          </dl>
-
-          <a
-            href={whatsappLink('Olá! Gostaria de conhecer melhor o trabalho do Dr. Alexandre Moura.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-terra transition-colors hover:text-graphite"
-          >
-            Conversar com a equipe
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          <ul className="mt-9 space-y-6">
+            {pontos.map((p, i) => (
+              <li key={p.title} className="reveal flex gap-4" style={{ transitionDelay: `${0.1 * i}s` }}>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-verde/5 text-verde-medio">
+                  <p.icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold">{p.title}</h3>
+                  <p className="mt-1 max-w-lg text-sm leading-relaxed font-light text-neblina">{p.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

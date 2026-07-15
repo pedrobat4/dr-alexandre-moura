@@ -3,10 +3,10 @@ import type { FormEvent } from 'react'
 import { ArrowRight, EnvelopeSimple, InstagramLogo, WhatsappLogo } from '@phosphor-icons/react'
 import { EMAIL, PHONE_DISPLAY, INSTAGRAM_URL, INSTAGRAM_HANDLE, whatsappLink } from '../config'
 import { procedures } from './Procedures'
-import familia from '../assets/familia.jpg'
+import corredor from '../assets/corredor.jpg'
 
 const inputClass =
-  'w-full border-b border-graphite/25 bg-transparent px-0 py-3 text-base font-light text-graphite placeholder:text-smoke/60 outline-none transition-colors focus:border-terra'
+  'w-full rounded-lg border border-cinza bg-white px-4 py-3 text-sm text-verde placeholder:text-neblina/50 outline-none transition-colors focus:border-verde-medio'
 
 export function LeadForm() {
   const [name, setName] = useState('')
@@ -28,34 +28,38 @@ export function LeadForm() {
   }
 
   return (
-    <section id="contato" className="bg-white">
-      <div className="mx-auto grid max-w-6xl gap-14 px-5 py-24 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:py-28">
+    <section id="contato" className="bg-marfim">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:py-28">
         <div className="lg:col-span-5">
-          <h2 className="reveal font-display text-4xl font-bold tracking-tight text-balance md:text-5xl">
+          <p className="reveal flex items-center gap-3 text-xs font-semibold tracking-[0.28em] text-verde-medio uppercase">
+            <span className="h-px w-8 bg-verde-medio/50" />
             Agende sua avaliação
+          </p>
+          <h2 className="reveal mt-4 font-display text-3xl leading-snug font-medium text-balance md:text-4xl" style={{ transitionDelay: '0.08s' }}>
+            O primeiro passo é <em className="italic">uma conversa</em>
           </h2>
-          <p className="reveal mt-5 max-w-sm text-base font-light leading-relaxed text-smoke" style={{ transitionDelay: '0.1s' }}>
+          <p className="reveal mt-5 max-w-sm text-base leading-relaxed font-light text-neblina" style={{ transitionDelay: '0.14s' }}>
             Preencha o formulário e fale direto com a equipe pelo WhatsApp,
             para atendimento presencial ou por telemedicina.
           </p>
 
           <img
-            src={familia}
-            alt="Dr. Alexandre Moura com a família"
-            className="reveal mt-10 aspect-[4/5] w-52 object-cover"
+            src={corredor}
+            alt="Dr. Alexandre Moura na clínica"
+            className="reveal mt-9 aspect-[4/3] w-full max-w-sm rounded-2xl object-cover object-top shadow-[0_16px_44px_rgba(9,37,38,0.15)]"
             loading="lazy"
-            style={{ transitionDelay: '0.15s' }}
+            style={{ transitionDelay: '0.18s' }}
           />
 
-          <ul className="reveal mt-10 space-y-4" style={{ transitionDelay: '0.2s' }}>
+          <ul className="reveal mt-9 space-y-3.5" style={{ transitionDelay: '0.22s' }}>
             <li>
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
+                className="flex items-center gap-3 text-sm font-medium text-verde-medio transition-colors hover:text-verde"
               >
-                <WhatsappLogo className="h-5 w-5 text-terra" />
+                <WhatsappLogo className="h-5 w-5" />
                 {PHONE_DISPLAY}
               </a>
             </li>
@@ -64,34 +68,40 @@ export function LeadForm() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
+                className="flex items-center gap-3 text-sm font-medium text-verde-medio transition-colors hover:text-verde"
               >
-                <InstagramLogo className="h-5 w-5 text-terra" />
+                <InstagramLogo className="h-5 w-5" />
                 @{INSTAGRAM_HANDLE}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-sm font-light text-smoke transition-colors hover:text-graphite"
+                className="flex items-center gap-3 text-sm font-medium text-verde-medio transition-colors hover:text-verde"
               >
-                <EnvelopeSimple className="h-5 w-5 text-terra" />
+                <EnvelopeSimple className="h-5 w-5" />
                 {EMAIL}
               </a>
             </li>
           </ul>
         </div>
 
-        <form onSubmit={handleSubmit} className="reveal space-y-8 lg:col-span-7 lg:pl-10" style={{ transitionDelay: '0.12s' }}>
-          <div className="grid gap-8 sm:grid-cols-2">
+        <form
+          onSubmit={handleSubmit}
+          className="reveal h-fit space-y-5 rounded-2xl border border-cinza/60 bg-white p-7 shadow-[0_10px_36px_rgba(9,37,38,0.06)] lg:col-span-7 lg:p-10"
+          style={{ transitionDelay: '0.12s' }}
+        >
+          <div className="grid gap-5 sm:grid-cols-2">
             <label className="block">
-              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
+              <span className="mb-1.5 block text-xs font-semibold tracking-wide text-verde-medio uppercase">
                 Nome completo *
               </span>
               <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" className={inputClass} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">WhatsApp *</span>
+              <span className="mb-1.5 block text-xs font-semibold tracking-wide text-verde-medio uppercase">
+                WhatsApp *
+              </span>
               <input
                 required
                 type="tel"
@@ -104,14 +114,10 @@ export function LeadForm() {
           </div>
 
           <label className="block">
-            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
+            <span className="mb-1.5 block text-xs font-semibold tracking-wide text-verde-medio uppercase">
               Procedimento de interesse
             </span>
-            <select
-              value={procedure}
-              onChange={(e) => setProcedure(e.target.value)}
-              className={`${inputClass} appearance-none [&>option]:bg-white`}
-            >
+            <select value={procedure} onChange={(e) => setProcedure(e.target.value)} className={inputClass}>
               <option value="">Selecione (opcional)</option>
               {procedures.map((p) => (
                 <option key={p.short} value={p.short}>
@@ -123,17 +129,17 @@ export function LeadForm() {
           </label>
 
           <fieldset>
-            <legend className="mb-3 block text-xs font-light tracking-[0.14em] text-smoke uppercase">
+            <legend className="mb-2 block text-xs font-semibold tracking-wide text-verde-medio uppercase">
               Preferência de atendimento
             </legend>
             <div className="grid grid-cols-2 gap-3">
               {['Presencial', 'Telemedicina'].map((m) => (
                 <label
                   key={m}
-                  className={`cursor-pointer border px-4 py-3 text-center text-sm font-light transition-colors ${
+                  className={`cursor-pointer rounded-lg border px-4 py-3 text-center text-sm font-medium transition-colors ${
                     mode === m
-                      ? 'border-terra bg-terra font-medium text-white'
-                      : 'border-graphite/25 text-smoke hover:border-terra hover:text-graphite'
+                      ? 'border-verde bg-verde text-white'
+                      : 'border-cinza bg-white text-verde-medio hover:border-verde-medio'
                   }`}
                 >
                   <input
@@ -151,7 +157,7 @@ export function LeadForm() {
           </fieldset>
 
           <label className="block">
-            <span className="mb-1 block text-xs font-light tracking-[0.14em] text-smoke uppercase">Mensagem</span>
+            <span className="mb-1.5 block text-xs font-semibold tracking-wide text-verde-medio uppercase">Mensagem</span>
             <textarea
               rows={3}
               value={message}
@@ -163,13 +169,13 @@ export function LeadForm() {
 
           <button
             type="submit"
-            className="group flex w-full items-center justify-center gap-3 bg-terra px-8 py-4 text-sm font-medium text-white transition-all hover:bg-terra-deep active:scale-[0.98] sm:w-auto"
+            className="group flex w-full items-center justify-center gap-3 rounded-full bg-verde px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-verde-medio active:scale-[0.98]"
           >
             <WhatsappLogo className="h-5 w-5" />
             Enviar pelo WhatsApp
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
-          <p className="text-xs font-light text-smoke/70">
+          <p className="text-center text-xs font-light text-neblina/80">
             Ao enviar, você será direcionada ao WhatsApp da equipe com a sua mensagem pronta.
           </p>
         </form>

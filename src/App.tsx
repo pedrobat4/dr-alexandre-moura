@@ -1,8 +1,9 @@
 import { useReveal } from './hooks/useReveal'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { Procedures } from './components/Procedures'
 import { About } from './components/About'
+import { Quote } from './components/Quote'
+import { Procedures } from './components/Procedures'
 import { Care } from './components/Care'
 import { Testimonials } from './components/Testimonials'
 import { LeadForm } from './components/LeadForm'
@@ -13,12 +14,13 @@ function App() {
   useReveal()
 
   return (
-    <div className="grain">
+    <div>
       <Navbar />
       <main>
         <Hero />
-        <Procedures />
         <About />
+        <Quote />
+        <Procedures />
         <Care />
         <Testimonials />
         <LeadForm />

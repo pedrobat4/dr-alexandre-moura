@@ -1,41 +1,71 @@
 import { CRM, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, PHONE_DISPLAY, whatsappLink } from '../config'
 
+const nav = [
+  { href: '#procedimentos', label: 'Procedimentos' },
+  { href: '#sobre', label: 'Quem somos' },
+  { href: '#atendimento', label: 'Atendimento' },
+  { href: '#contato', label: 'Agendar avaliação' },
+]
+
 export function Footer() {
   return (
-    <footer className="border-t border-graphite/10">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 lg:grid-cols-12 lg:px-8">
-        <div className="lg:col-span-6">
-          <p className="font-display text-lg font-semibold tracking-tight">Alexandre Moura</p>
-          <p className="mt-1 text-sm font-light text-smoke">Cirurgião plástico</p>
-          <p className="mt-1 text-sm font-light text-smoke">{CRM}</p>
+    <footer className="bg-verde text-white">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-3 lg:px-8">
+        <div>
+          <p className="font-display text-xl font-semibold">Dr. Alexandre Moura</p>
+          <p className="mt-1 text-[10px] font-medium tracking-[0.3em] text-cinza uppercase">
+            Cirurgia Plástica
+          </p>
+          <p className="mt-4 text-sm font-light text-white/70">{CRM}</p>
+          <p className="text-sm font-light text-white/70">São Paulo, SP</p>
         </div>
-        <div className="space-y-1.5 text-sm font-light text-smoke lg:col-span-6 lg:text-right">
-          <p>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-graphite">
-              {PHONE_DISPLAY}
-            </a>
-          </p>
-          <p>
-            <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-graphite">
-              {EMAIL}
-            </a>
-          </p>
-          <p>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-graphite">
-              @{INSTAGRAM_HANDLE}
-            </a>
-          </p>
+
+        <div>
+          <p className="text-xs font-semibold tracking-[0.24em] text-cinza uppercase">Navegação</p>
+          <ul className="mt-4 space-y-2.5">
+            {nav.map((n) => (
+              <li key={n.href}>
+                <a href={n.href} className="text-sm font-light text-white/80 transition-colors hover:text-white">
+                  {n.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold tracking-[0.24em] text-cinza uppercase">Contato</p>
+          <ul className="mt-4 space-y-2.5 text-sm font-light">
+            <li>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="text-white/80 transition-colors hover:text-white">
+                {PHONE_DISPLAY}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${EMAIL}`} className="text-white/80 transition-colors hover:text-white">
+                {EMAIL}
+              </a>
+            </li>
+            <li>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-white/80 transition-colors hover:text-white">
+                @{INSTAGRAM_HANDLE}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl border-t border-graphite/10 px-5 py-6 lg:px-8">
-        <p className="max-w-2xl text-xs font-light leading-relaxed text-smoke/70">
-          Este site tem caráter informativo e não substitui a consulta médica. A
-          indicação de procedimentos depende de avaliação individual. Resultados
-          variam de pessoa para pessoa.
-        </p>
-        <p className="mt-3 text-xs font-light text-smoke/60">
-          © {new Date().getFullYear()} Dr. Alexandre Moura. Todos os direitos reservados.
-        </p>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-5 py-6 lg:px-8">
+          <p className="max-w-2xl text-xs leading-relaxed font-light text-white/50">
+            Este site tem caráter informativo e não substitui a consulta médica.
+            A indicação de procedimentos depende de avaliação individual.
+            Resultados variam de pessoa para pessoa.
+          </p>
+          <p className="mt-3 text-xs font-light text-white/40">
+            © {new Date().getFullYear()} Dr. Alexandre Moura. Todos os direitos reservados.
+          </p>
+        </div>
       </div>
     </footer>
   )
