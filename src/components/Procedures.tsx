@@ -1,5 +1,6 @@
-import { ArrowRight, Person, Heartbeat, Drop } from '@phosphor-icons/react'
+import { ArrowRight, Person } from '@phosphor-icons/react'
 import { whatsappLink } from '../config'
+import { BreastIcon, FaceIcon } from './CustomIcons'
 
 type Procedure = { name: string; short: string }
 
@@ -11,12 +12,14 @@ export const groups = [
     items: [
       { name: 'Lipoaspiração, lipoescultura e lipoenxertia', short: 'Lipoaspiração / Lipoescultura' },
       { name: 'Abdominoplastia', short: 'Abdominoplastia' },
+      { name: 'Braquioplastia (braços)', short: 'Braquioplastia (braços)' },
+      { name: 'Cruroplastia (coxas)', short: 'Cruroplastia (coxas)' },
       { name: 'Correção de ginecomastia', short: 'Ginecomastia' },
     ] as Procedure[],
   },
   {
     title: 'Mamas',
-    icon: Heartbeat,
+    icon: BreastIcon,
     desc: 'Aumento, elevação ou redução, conforme avaliação.',
     items: [
       { name: 'Mamoplastia de aumento', short: 'Mamoplastia de aumento' },
@@ -26,7 +29,7 @@ export const groups = [
   },
   {
     title: 'Face e injetáveis',
-    icon: Drop,
+    icon: FaceIcon,
     desc: 'Procedimentos faciais e minimamente invasivos.',
     items: [
       { name: 'Blefaroplastia (pálpebras)', short: 'Blefaroplastia (pálpebras)' },
@@ -52,8 +55,8 @@ export function Procedures() {
               O que o Dr. Alexandre <em className="italic">realiza</em>
             </h2>
             <p className="reveal mt-4 max-w-xl text-base leading-relaxed font-light text-neblina" style={{ transitionDelay: '0.14s' }}>
-              Três áreas de atuação. Toque em um procedimento para falar sobre
-              ele direto no WhatsApp.
+              Áreas de atuação. Toque em um procedimento para falar sobre ele
+              direto no WhatsApp.
             </p>
           </div>
           <div className="reveal hidden lg:col-span-4 lg:flex lg:justify-end" style={{ transitionDelay: '0.18s' }}>

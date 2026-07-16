@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react'
 import { whatsappLink } from '../config'
-import consulta from '../assets/consulta.jpg'
+import sobreMesa from '../assets/sobre-mesa.jpg'
 
 const modes = [
   {
@@ -54,7 +54,7 @@ export function Care() {
 
         <div className="reveal mx-auto w-full max-w-md lg:col-span-5" style={{ transitionDelay: '0.15s' }}>
           <img
-            src={consulta}
+            src={sobreMesa}
             alt="Dr. Alexandre Moura em consulta no consultório"
             className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
             loading="lazy"

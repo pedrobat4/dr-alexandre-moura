@@ -1,6 +1,6 @@
 import { Certificate, MapPin, VideoCamera } from '@phosphor-icons/react'
 import { CRM } from '../config'
-import sobreMesa from '../assets/sobre-mesa.jpg'
+import cirurgiaTouca from '../assets/cirurgia-touca.jpg'
 
 const pontos = [
   {
@@ -26,9 +26,9 @@ export function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:py-28">
         <div className="reveal mx-auto w-full max-w-md lg:col-span-5">
           <img
-            src={sobreMesa}
-            alt="Dr. Alexandre Moura em seu consultório"
-            className="aspect-[4/5] w-full rounded-2xl object-cover shadow-[0_24px_60px_rgba(9,37,38,0.18)]"
+            src={cirurgiaTouca}
+            alt="Dr. Alexandre Moura em cirurgia, com touca personalizada"
+            className="aspect-[4/5] w-full rounded-2xl object-cover object-[center_18%] shadow-[0_24px_60px_rgba(9,37,38,0.18)]"
             loading="lazy"
           />
         </div>

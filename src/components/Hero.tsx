@@ -23,17 +23,17 @@ export function Hero() {
         <div className="lg:col-span-7">
           <p className="reveal flex items-center gap-3 text-xs font-semibold tracking-[0.3em] text-cinza uppercase">
             <span className="h-px w-8 bg-cinza/50" />
-            Cirurgia plástica · São Paulo
+            São Paulo · SP
           </p>
 
           <h1 className="reveal mt-6 text-balance" style={{ transitionDelay: '0.08s' }}>
-            <span className="block font-display text-3xl leading-tight font-medium text-white/90 md:text-4xl">
-              Cirurgia plástica com
-            </span>
-            <span className="mt-1 block font-display text-5xl leading-[1.05] font-medium text-cinza italic md:text-6xl lg:text-[4.3rem]">
-              excelência em
+            <span className="block font-display text-4xl leading-[1.08] font-semibold tracking-wide text-white uppercase md:text-5xl lg:text-[3.6rem]">
+              Cirurgia
               <br />
-              cada detalhe.
+              Plástica
+            </span>
+            <span className="mt-3 block font-display text-2xl leading-snug font-medium text-cinza italic md:text-3xl lg:text-4xl">
+              Excelência em cada detalhe.
             </span>
           </h1>
 
@@ -41,8 +41,8 @@ export function Hero() {
             className="reveal mt-7 max-w-lg text-base leading-relaxed font-light text-white/75"
             style={{ transitionDelay: '0.16s' }}
           >
-            Com o Dr. Alexandre Moura, membro especialista pela Sociedade
-            Brasileira de Cirurgia Plástica.
+            Dr. Alexandre Moura, membro especialista pela Sociedade Brasileira
+            de Cirurgia Plástica.
           </p>
 
           <ul className="reveal mt-6 flex flex-wrap gap-2.5" style={{ transitionDelay: '0.22s' }}>
